@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4 Button Project</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #89f7fe, #51b372);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .btn-container button {
+      background: #66a6ff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-container button:hover {
+      background: #5591e6;
+    }
+
+    .content {
+      display: none; /* hidden by default */
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .content.active {
+      display: block; /* show active content */
+      animation: fadeIn 0.5s ease-in-out;
+    }
+footer {
+  background: linear-gradient(135deg, #aa653c, #00f2fe);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+
+  footer span {
+    color: #ff4b5c;
+    font-size: 18px;}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>⚡ 4 Button Project</h2>
+
+  <div class="btn-container">
+    <button onclick="showContent(1)">Tab 1</button>
+    <button onclick="showContent(2)">Tab 2</button>
+    <button onclick="showContent(3)">Tab 3</button>
+    <button onclick="showContent(4)">Tab 4</button>
+  </div>
+
+  <div id="content1" class="content">🌍 This is Content 1</div>
+  <div id="content2" class="content">🔥 This is Content 2</div>
+  <div id="content3" class="content">🎵 This is Content 3</div>
+  <div id="content4" class="content">💡 This is Content 4</div>
+
+  <script>
+    function showContent(num) {
+      // hide all contents
+      document.querySelectorAll(".content").forEach(div => {
+        div.classList.remove("active");
+      });
+
+      // show only clicked one
+      document.getElementById("content" + num).classList.add("active");
+    }
+  </script><br><br><br>
+<footer>
+    <a href="index.html" target="_blank">Go to BMI Calculator</a>
+    <a href="weath.html" target="_blank">Go to weather app</a>
+  </footer>
+</body>
+</html>

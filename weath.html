@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Weather App Dummy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f7971e, #ffd200);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+     body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* full height */
+    margin: 0;
+  }
+    .weather-box {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 320px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #ff9800;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #e68900;
+    }
+    #result {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+    background: linear-gradient(135deg, #8ac15b, #00f2fe);
+    color: white}
+      
+   
+ footer {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
+  letter-spacing: 0.5px;
+}
+
+  footer span {
+    color: #ff4b5c;
+    font-size: 18px;
+  }
+  </style>
+</head>
+<body>
+  <div class="weather-box">
+    <h2>🌦 Weather App (Dummy)</h2>
+    <input type="text" id="city" placeholder="Enter city name">
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    // Dummy weather data
+    const weatherData = {
+      lahore: { temp: 32, condition: "Sunny" },
+      karachi: { temp: 30, condition: "Cloudy" },
+      islamabad: { temp: 28, condition: "Rainy" }
+    };
+
+    function getWeather() {
+      let city = document.getElementById("city").value.toLowerCase();
+      fetchWeather(city, showWeather);
+    }
+
+    // simulate fetch with callback
+    function fetchWeather(city, callback) {
+      if(weatherData[city]) {
+        callback({ name: city, ...weatherData[city] });
+      } else {
+        callback(null);
+      }
+    }
+
+    function showWeather(data) {
+      if(data) {
+        document.getElementById("result").innerHTML = `
+          🌍 City: ${data.name.toUpperCase()} <br>
+          🌡 Temp: ${data.temp}°C <br>
+          ☁ Weather: ${data.condition}
+        `;
+      } else {
+        document.getElementById("result").innerHTML = "❌ City not found!";
+      }
+    }
+  </script><br><br><br>
+  <footer>
+    <a href="index.html" target="_blank">Go to BMI Calculator</a>
+  </footer>
+</body>
+</html>
